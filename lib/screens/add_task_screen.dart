@@ -1,10 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:to_do/models/tasks.dart';
+import 'package:to_do/screens/tasks_screen.dart';
 
 // ignore: camel_case_types
 class Add_Task_screen extends StatelessWidget {
+  final Function addTaskCallBack;
+
+  const Add_Task_screen({Key key, this.addTaskCallBack}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    String newTaskTitle;
+
     return Container(
       color: Color(0xff757575),
       child: Container(
@@ -31,6 +38,9 @@ class Add_Task_screen extends StatelessWidget {
                   parent: AlwaysScrollableScrollPhysics()),
               autofocus: true,
               textAlign: TextAlign.center,
+              onChanged: (value) {
+                newTaskTitle = value;
+              },
             ),
             SizedBox(
               height: 15.0,
@@ -38,7 +48,9 @@ class Add_Task_screen extends StatelessWidget {
             FlatButton(
                 color: Colors.lightBlueAccent,
                 onPressed: () {
-                  print('button pressed');
+                  addTaskCallBack(newTaskTitle);
+
+                  print(newTaskTitle);
                 },
                 child: Text(
                   'Add',

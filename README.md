@@ -2,6 +2,8 @@
 
 a simple to do list app ,made using flutter
 
+# Have made this repo to learn more about github actions
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.

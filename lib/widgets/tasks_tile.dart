@@ -4,8 +4,13 @@ class TaskTile extends StatelessWidget {
   final bool isTrue;
   final String taskTitle;
   final Function checkBoxCallBack;
+  final Function longpresscallback;
 
-  const TaskTile({this.isTrue, this.taskTitle, this.checkBoxCallBack});
+  const TaskTile(
+      {this.isTrue,
+      this.taskTitle,
+      this.checkBoxCallBack,
+      this.longpresscallback});
   // void checkBoxCallback(bool checkBoxstate) {
   //   // setState(() {
   //   //   isTrue = checkBoxstate;
@@ -33,6 +38,7 @@ class TaskTile extends StatelessWidget {
           ],
         ),
         child: ListTile(
+            onLongPress: longpresscallback,
             contentPadding: EdgeInsets.all(5.0),
             title: Text(
               taskTitle,

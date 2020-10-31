@@ -1,13 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:to_do/models/tasks.dart';
-import 'package:to_do/screens/tasks_screen.dart';
+import 'package:provider/provider.dart';
+import 'package:to_do/models/task_data.dart';
+import 'package:bot_toast/bot_toast.dart';
 
 // ignore: camel_case_types
 class Add_Task_screen extends StatelessWidget {
-  final Function addTaskCallBack;
-
-  const Add_Task_screen({Key key, this.addTaskCallBack}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     String newTaskTitle;
@@ -33,7 +31,7 @@ class Add_Task_screen extends StatelessWidget {
               ),
             ),
             CupertinoTextField(
-              autocorrect: true,
+              textCapitalization: TextCapitalization.sentences,
               scrollPhysics: BouncingScrollPhysics(
                   parent: AlwaysScrollableScrollPhysics()),
               autofocus: true,
@@ -46,18 +44,29 @@ class Add_Task_screen extends StatelessWidget {
               height: 15.0,
             ),
             FlatButton(
-                color: Colors.lightBlueAccent,
-                onPressed: () {
-                  addTaskCallBack(newTaskTitle);
-
+              color: Colors.lightBlueAccent,
+              onPressed: () {
+                if (newTaskTitle == null) {
+                  Navigator.pop(context);
+                } else {
+                  Provider.of<TaskData>(context, listen: false)
+                      .addTask(newTaskTitle);
+                  BotToast.showSimpleNotification(
+                    title: "To Do List",
+                    subTitle: 'Addded the task Succesfully',
+                    borderRadius: 10.0,
+                  );
+                  Navigator.pop(context);
                   print(newTaskTitle);
-                },
-                child: Text(
-                  'Add',
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
-                ))
+                }
+              },
+              child: Text(
+                'Add',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ),
           ],
         ),
       ),

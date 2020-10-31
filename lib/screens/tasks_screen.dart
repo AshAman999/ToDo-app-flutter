@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:to_do/models/task_data.dart';
 import 'package:to_do/widgets/tasks_list.dart';
 import 'add_task_screen.dart';
 import 'package:to_do/models/tasks.dart';
-
-List<Task> tasks = [];
-
-// ignore: camel_case_types
-class Tasks_Screen extends StatefulWidget {
-  @override
-  _Tasks_ScreenState createState() => _Tasks_ScreenState();
-}
+import 'package:provider/provider.dart';
 
 // ignore: camel_case_types
-class _Tasks_ScreenState extends State<Tasks_Screen> {
+class Tasks_Screen extends StatelessWidget {
+// ignore: camel_case_types
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,17 +16,7 @@ class _Tasks_ScreenState extends State<Tasks_Screen> {
         onPressed: () {
           print('button pressed');
           showModalBottomSheet(
-              context: context,
-              builder: (context) => Add_Task_screen(
-                    addTaskCallBack: (newTaskTitle) {
-                      setState(() {
-                        if (newTaskTitle != null)
-                          tasks.add(Task(name: newTaskTitle));
-                        Navigator.pop(context);
-                      });
-                      print(newTaskTitle);
-                    },
-                  ));
+              context: context, builder: (context) => Add_Task_screen());
         },
         elevation: 12.0,
         backgroundColor: Colors.lightBlueAccent,
@@ -68,7 +53,7 @@ class _Tasks_ScreenState extends State<Tasks_Screen> {
                     ),
                   ),
                   Text(
-                    '${tasks.length} tasks left',
+                    '${Provider.of<TaskData>(context).tasks.length} tasks left',
                     style: TextStyle(fontSize: 18.0, color: Colors.white),
                   ),
                 ],
@@ -84,9 +69,7 @@ class _Tasks_ScreenState extends State<Tasks_Screen> {
                     topRight: Radius.circular(20.0),
                   ),
                 ),
-                child: TasksWidget(
-                  tasks: tasks,
-                ),
+                child: TasksWidget(),
               ),
             ),
           ],

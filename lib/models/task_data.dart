@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'tasks.dart';
 
 class TaskData extends ChangeNotifier {
-  List<Task> tasks = [];
+  List<Task> tasks = [Task(name: "hello", isdone: false)];
 
   void addTask(String newTaskTitle) {
-    final task = Task(name: newTaskTitle);
+    final task = Task(name: newTaskTitle, isdone: false);
     tasks.add(task);
     notifyListeners();
   }

@@ -26,7 +26,7 @@ class Add_Task_screen extends StatelessWidget {
               'Add Task',
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: Colors.lightBlueAccent,
+                color: Colors.orangeAccent,
                 fontSize: 30.0,
               ),
             ),
@@ -43,27 +43,53 @@ class Add_Task_screen extends StatelessWidget {
             SizedBox(
               height: 15.0,
             ),
-            FlatButton(
-              color: Colors.lightBlueAccent,
-              onPressed: () {
-                if (newTaskTitle == null) {
-                  Navigator.pop(context);
-                } else {
-                  Provider.of<TaskData>(context, listen: false)
-                      .addTask(newTaskTitle);
-                  BotToast.showSimpleNotification(
-                    title: "To Do List",
-                    subTitle: 'Addded the task Succesfully',
-                    borderRadius: 10.0,
-                  );
-                  Navigator.pop(context);
-                  print(newTaskTitle);
-                }
-              },
-              child: Text(
-                'Add',
-                style: TextStyle(
-                  color: Colors.white,
+            Container(
+              margin: EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: Colors.orangeAccent,
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(10),
+                    topRight: Radius.circular(10),
+                    bottomLeft: Radius.circular(10),
+                    bottomRight: Radius.circular(10)),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.orange[50],
+                    spreadRadius: 1,
+                    blurRadius: 2,
+                    offset: Offset(0, 2), // changes position of shadow
+                  ),
+                ],
+              ),
+              width: double.infinity,
+              child: TextButton(
+                // color: Colors.orangeAccent,
+                style: TextButton.styleFrom(
+                  padding: const EdgeInsets.all(16.0),
+                  primary: Colors.orangeAccent,
+                  textStyle: const TextStyle(fontSize: 20),
+                ),
+
+                onPressed: () {
+                  if (newTaskTitle == null) {
+                    Navigator.pop(context);
+                  } else {
+                    Provider.of<TaskData>(context, listen: false)
+                        .addTask(newTaskTitle);
+                    BotToast.showSimpleNotification(
+                      title: "To Do List",
+                      subTitle: 'Addded the task Succesfully',
+                      borderRadius: 10.0,
+                    );
+                    Navigator.pop(context);
+                    print(newTaskTitle);
+                  }
+                },
+                child: Text(
+                  'Add',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),

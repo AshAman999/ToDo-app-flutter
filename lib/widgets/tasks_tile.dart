@@ -23,18 +23,19 @@ class TaskTile extends StatelessWidget {
       child: Container(
         margin: EdgeInsets.all(8),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8.0),
           color: Colors.white,
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(10),
+              topRight: Radius.circular(10),
+              bottomLeft: Radius.circular(10),
+              bottomRight: Radius.circular(10)),
           boxShadow: [
             BoxShadow(
-              color: Colors.lightBlueAccent,
-              blurRadius: 4.0,
-              spreadRadius: 0.0,
-              offset: Offset(
-                4.0,
-                3.0,
-              ), // shadow direction: bottom right
-            )
+              color: Colors.orange.withOpacity(0.5),
+              spreadRadius: 5,
+              blurRadius: 7,
+              offset: Offset(0, 3), // changes position of shadow
+            ),
           ],
         ),
         child: ListTile(
@@ -47,7 +48,7 @@ class TaskTile extends StatelessWidget {
               ),
             ),
             trailing: Checkbox(
-              activeColor: Colors.lightBlueAccent,
+              activeColor: Colors.orangeAccent,
               value: isTrue,
               onChanged: checkBoxCallBack,
             )),

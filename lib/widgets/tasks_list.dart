@@ -11,6 +11,7 @@ class TasksWidget extends StatelessWidget {
     return Consumer<TaskData>(
       builder: (context, taskdata, child) {
         return ListView.builder(
+          padding: EdgeInsets.only(top: 15),
           physics:
               BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
           reverse: false,
@@ -21,7 +22,11 @@ class TasksWidget extends StatelessWidget {
               isTrue: Provider.of<TaskData>(context).tasks[index].isdone,
               longpresscallback: () {
                 taskdata.deleteTask(taskdata.tasks[index]);
-                BotToast.showText(text: "Deleted");
+                BotToast.showSimpleNotification(
+                  title: "To Do List ☑️",
+                  subTitle: 'Deleted the task Succesfully',
+                  borderRadius: 10.0,
+                );
               },
               checkBoxCallBack: (checkBoxState) {
                 taskdata.updateTask(taskdata.tasks[index]);

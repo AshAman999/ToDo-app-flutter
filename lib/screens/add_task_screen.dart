@@ -22,14 +22,13 @@ class Add_Task_screen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(
-              'Add Task',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.orangeAccent,
-                fontSize: 30.0,
-              ),
-            ),
+            Text('Add a new task',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 30.0,
+                  fontWeight: FontWeight.w700,
+                  color: Colors.deepOrange,
+                )),
             CupertinoTextField(
               textCapitalization: TextCapitalization.sentences,
               scrollPhysics: BouncingScrollPhysics(
@@ -46,7 +45,7 @@ class Add_Task_screen extends StatelessWidget {
             Container(
               margin: EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: Colors.orangeAccent,
+                color: Colors.deepOrange,
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(10),
                     topRight: Radius.circular(10),
@@ -63,10 +62,10 @@ class Add_Task_screen extends StatelessWidget {
               ),
               width: double.infinity,
               child: TextButton(
-                // color: Colors.orangeAccent,
+                // color: Colors.deepOrange,
                 style: TextButton.styleFrom(
                   padding: const EdgeInsets.all(16.0),
-                  primary: Colors.orangeAccent,
+                  primary: Colors.deepOrange,
                   textStyle: const TextStyle(fontSize: 20),
                 ),
 

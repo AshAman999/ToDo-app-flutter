@@ -11,7 +11,7 @@ class Tasks_Screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.orangeAccent,
+      backgroundColor: Colors.deepOrange,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           print('button pressed');
@@ -19,7 +19,7 @@ class Tasks_Screen extends StatelessWidget {
               context: context, builder: (context) => Add_Task_screen());
         },
         elevation: 12.0,
-        backgroundColor: Colors.orangeAccent,
+        backgroundColor: Colors.deepOrange,
         child: Icon(Icons.add),
       ),
       body: SafeArea(
@@ -33,7 +33,7 @@ class Tasks_Screen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   CircleAvatar(
-                    foregroundColor: Colors.orangeAccent,
+                    foregroundColor: Colors.deepOrange,
                     radius: 30.0,
                     child: Icon(
                       Icons.list,

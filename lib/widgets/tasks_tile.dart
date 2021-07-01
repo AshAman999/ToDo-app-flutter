@@ -31,7 +31,7 @@ class TaskTile extends StatelessWidget {
               bottomRight: Radius.circular(10)),
           boxShadow: [
             BoxShadow(
-              color: Colors.orange.withOpacity(0.5),
+              color: Colors.deepOrange.withOpacity(0.5),
               spreadRadius: 5,
               blurRadius: 7,
               offset: Offset(0, 3), // changes position of shadow
@@ -40,7 +40,7 @@ class TaskTile extends StatelessWidget {
         ),
         child: ListTile(
             onLongPress: longpresscallback,
-            contentPadding: EdgeInsets.all(5.0),
+            contentPadding: EdgeInsets.fromLTRB(25.0, 5.0, 5.0, 5.0),
             title: Text(
               taskTitle,
               style: TextStyle(
@@ -48,7 +48,7 @@ class TaskTile extends StatelessWidget {
               ),
             ),
             trailing: Checkbox(
-              activeColor: Colors.orangeAccent,
+              activeColor: Colors.deepOrange,
               value: isTrue,
               onChanged: checkBoxCallBack,
             )),

@@ -17,10 +17,50 @@ class TasksWidget extends StatelessWidget {
           reverse: false,
           itemCount: Provider.of<TaskData>(context).tasks.length,
           itemBuilder: (context, index) {
-            return TaskTile(
-              taskTitle: taskdata.tasks[index].name,
-              isTrue: Provider.of<TaskData>(context).tasks[index].isdone,
-              longpresscallback: () {
+            return Dismissible(
+              direction: DismissDirection.horizontal,
+              key: UniqueKey(),
+              background: Container(
+                margin: EdgeInsets.fromLTRB(0, 8, 0, 8),
+                color: Colors.red,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 30),
+                      child: Icon(
+                        Icons.delete,
+                        size: 30,
+                      ),
+                    ),
+                    Text(
+                      "Delete ?",
+                      style: TextStyle(),
+                    ),
+                  ],
+                ),
+              ),
+              secondaryBackground: Container(
+                margin: EdgeInsets.fromLTRB(0, 8, 0, 8),
+                color: Colors.red,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text(
+                      "Delete ?",
+                      style: TextStyle(),
+                    ),
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 30),
+                      child: Icon(
+                        Icons.delete,
+                        size: 30,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              onDismissed: (direction) {
                 taskdata.deleteTask(taskdata.tasks[index]);
                 BotToast.showSimpleNotification(
                   title: "To Do List ☑️",
@@ -28,9 +68,21 @@ class TasksWidget extends StatelessWidget {
                   borderRadius: 10.0,
                 );
               },
-              checkBoxCallBack: (checkBoxState) {
-                taskdata.updateTask(taskdata.tasks[index]);
-              },
+              child: TaskTile(
+                taskTitle: taskdata.tasks[index].name,
+                isTrue: Provider.of<TaskData>(context).tasks[index].isdone,
+                longpresscallback: () {
+                  taskdata.deleteTask(taskdata.tasks[index]);
+                  BotToast.showSimpleNotification(
+                    title: "To Do List ☑️",
+                    subTitle: 'Deleted the task Succesfully',
+                    borderRadius: 10.0,
+                  );
+                },
+                checkBoxCallBack: (checkBoxState) {
+                  taskdata.updateTask(taskdata.tasks[index]);
+                },
+              ),
             );
           },
         );

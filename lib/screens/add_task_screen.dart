@@ -38,6 +38,21 @@ class Add_Task_screen extends StatelessWidget {
               onChanged: (value) {
                 newTaskTitle = value;
               },
+              onSubmitted: (newTaskTitle) {
+                if (newTaskTitle == null) {
+                  Navigator.pop(context);
+                } else {
+                  Provider.of<TaskData>(context, listen: false)
+                      .addTask(newTaskTitle);
+                  BotToast.showSimpleNotification(
+                    title: "To Do List",
+                    subTitle: 'Addded the task Succesfully',
+                    borderRadius: 10.0,
+                  );
+                  Navigator.pop(context);
+                  print(newTaskTitle);
+                }
+              },
             ),
             SizedBox(
               height: 15.0,

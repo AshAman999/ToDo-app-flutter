@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
 import 'package:to_do/models/task_data.dart';
 import 'package:bot_toast/bot_toast.dart';
+import 'package:to_do/models/tasks.dart';
 
 // ignore: camel_case_types
 class Add_Task_screen extends StatelessWidget {
@@ -39,20 +41,7 @@ class Add_Task_screen extends StatelessWidget {
                 newTaskTitle = value;
               },
               onSubmitted: (newTaskTitle) {
-                if (newTaskTitle == null) {
-                  Navigator.pop(context);
-                } else {
-                  Provider.of<TaskData>(context, listen: false)
-                      .addTask(newTaskTitle);
-                  BotToast.showSimpleNotification(
-                    title: "To Do List",
-                    subTitle: 'Addded the task Succesfully',
-                    borderRadius: 10.0,
-                  );
-                  Navigator.pop(context);
-                  print(newTaskTitle);
-                }
-              },
+                submitData(newTaskTitle, context);
             ),
             SizedBox(
               height: 15.0,
@@ -85,19 +74,7 @@ class Add_Task_screen extends StatelessWidget {
                 ),
 
                 onPressed: () {
-                  if (newTaskTitle == null) {
-                    Navigator.pop(context);
-                  } else {
-                    Provider.of<TaskData>(context, listen: false)
-                        .addTask(newTaskTitle);
-                    BotToast.showSimpleNotification(
-                      title: "To Do List",
-                      subTitle: 'Addded the task Succesfully',
-                      borderRadius: 10.0,
-                    );
-                    Navigator.pop(context);
-                    print(newTaskTitle);
-                  }
+                  submitData(newTaskTitle, context);
                 },
                 child: Text(
                   'Add',
@@ -112,4 +89,18 @@ class Add_Task_screen extends StatelessWidget {
       ),
     );
   }
+}
+
+submitData(String title, BuildContext context) async {
+  if (title != null) {
+    Box<Task> todoBox = Hive.box<Task>('todos');
+    todoBox.add(Task(name: title, isdone: false));
+    BotToast.showSimpleNotification(
+      title: "To Do List",
+      subTitle: 'Addded the task Succesfully',
+      borderRadius: 10.0,
+    );
+    Navigator.pop(context);
+  } else
+    Navigator.pop(context);
 }

@@ -1,22 +1,32 @@
 import 'package:flutter/cupertino.dart';
+import 'package:hive/hive.dart';
 import 'tasks.dart';
 
 class TaskData extends ChangeNotifier {
-  List<Task> tasks = [Task(name: "hello", isdone: false)];
+  List<Box<Task>> tasks = [Hive.box<Task>('todos')];
+
+  // List<Task> tasks = tasks;
+  //  Box<Todo> tasks = Hive.box<Todo>('todos');
 
   void addTask(String newTaskTitle) {
-    final task = Task(name: newTaskTitle, isdone: false);
-    tasks.add(task);
+    final tasks = Task(name: newTaskTitle, isdone: false);
+    tasks.add(tasks);
+    // taskss.add(tasks);
     notifyListeners();
   }
 
-  void updateTask(Task task) {
-    task.toogleDone();
+  void updateTask(Task tasks) {
+    tasks.toogleDone();
     notifyListeners();
   }
 
-  void deleteTask(Task task) {
-    tasks.remove(task);
+  void deleteTask(Task tasks, int index) async {
+    await tasks.deleteAt(index);
+    // taskss.remove(tasks);
     notifyListeners();
+  }
+
+  void submitData(Task tasks) async {
+    tasks.add(tasks);
   }
 }

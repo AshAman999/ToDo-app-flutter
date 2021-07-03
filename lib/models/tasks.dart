@@ -5,4 +5,15 @@ class Task {
   void toogleDone() {
     isdone = !isdone;
   }
+
+  Task.fromMap(Map map)
+      : this.name = map['name'],
+        this.isdone = map['isdone'];
+
+  Map toMap() {
+    return {
+      'name': this.name,
+      'isdone': this.isdone,
+    };
+  }
 }

@@ -4,8 +4,25 @@ import 'package:to_do/widgets/tasks_tile.dart';
 import 'package:provider/provider.dart';
 import 'package:to_do/models/task_data.dart';
 import 'package:bot_toast/bot_toast.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class TasksWidget extends StatelessWidget {
+class TasksWidget extends StatefulWidget {
+  @override
+  _TasksWidgetState createState() => _TasksWidgetState();
+}
+
+class _TasksWidgetState extends State<TasksWidget> {
+  SharedPreferences sharedPreferences;
+  @override
+  void initState() {
+    initSharedPreferences();
+    super.initState();
+  }
+
+  void initSharedPreferences() async {
+    sharedPreferences = await SharedPreferences.getInstance();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Consumer<TaskData>(

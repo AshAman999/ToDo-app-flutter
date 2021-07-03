@@ -80,7 +80,7 @@ class _TasksWidgetState extends State<TasksWidget> {
               onDismissed: (direction) {
                 taskdata.deleteTask(taskdata.tasks[index]);
                 BotToast.showSimpleNotification(
-                  title: "To Do List ☑️",
+                  title: "To Do List 📝",
                   subTitle: 'Deleted the task Succesfully',
                   borderRadius: 10.0,
                 );
@@ -91,7 +91,7 @@ class _TasksWidgetState extends State<TasksWidget> {
                 longpresscallback: () {
                   taskdata.deleteTask(taskdata.tasks[index]);
                   BotToast.showSimpleNotification(
-                    title: "To Do List ☑️",
+                    title: "To Do List 📝",
                     subTitle: 'Deleted the task Succesfully',
                     borderRadius: 10.0,
                   );

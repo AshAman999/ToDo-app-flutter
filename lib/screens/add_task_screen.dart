@@ -46,8 +46,8 @@ class Add_Task_screen extends StatelessWidget {
                   Provider.of<TaskData>(context, listen: false)
                       .addTask(newTaskTitle);
                   BotToast.showSimpleNotification(
-                    title: "To Do List",
-                    subTitle: 'Addded the task Succesfully',
+                    title: "To Do List 📝",
+                    subTitle: 'Addded the task Succesfully ',
                     borderRadius: 10.0,
                   );
                   Navigator.pop(context);

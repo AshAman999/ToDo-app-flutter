@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:to_do/models/task_data.dart';
+import 'package:to_do/screens/custom_dialog.dart';
 import 'package:to_do/widgets/tasks_list.dart';
 import 'add_task_screen.dart';
 import 'package:provider/provider.dart';
@@ -39,12 +40,10 @@ class Tasks_Screen extends StatelessWidget {
               ),
               accountEmail: Text("Your own personal ToDo"),
               currentAccountPicture: CircleAvatar(
-                backgroundColor: Colors.blue,
-                child: Text(
-                  "A",
-                  style: TextStyle(fontSize: 40.0),
-                ),
-              ),
+                  backgroundColor: Colors.deepOrange,
+                  child: Image(
+                    image: AssetImage("assets/logo_transparent.png"),
+                  )),
             ),
             ListTile(
               leading: Icon(Icons.check_box_outline_blank_rounded),
@@ -70,7 +69,18 @@ class Tasks_Screen extends StatelessWidget {
               title: Text('Change Theme'),
             ),
             ListTile(
-              onTap: null,
+              onTap: () {
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return CustomDialogBox(
+                        title: "Aman Raj",
+                        descriptions:
+                            "Hey there! This app will help you in keeping track of your bucket list work,it's simple to use. If you wannt to add a task press the + icon button and fill the text field with your task name, you can toogle the checkbox of each task, also to delte any task you just need to swipe left or swipe right. A Big thanks to all the answers on stackoverflow and to the flutter cook-book itself without which i couldn'd have made this app usable ",
+                        text: "Check GitHub",
+                      );
+                    });
+              },
               leading: Icon(Icons.info),
               title: Text('About'),
             ),

@@ -9,7 +9,7 @@ class Add_Task_screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String newTaskTitle;
-    bool isdone = false;
+    // bool isdone = false;
 
     return Container(
       color: Color(0xff757575),

@@ -75,8 +75,7 @@ class Tasks_Screen extends StatelessWidget {
                     builder: (BuildContext context) {
                       return CustomDialogBox(
                         title: "Aman Raj",
-                        descriptions:
-                            "Hey there! This app will help you in keeping track of your bucket list work,it's simple to use. If you wannt to add a task press the + icon button and fill the text field with your task name, you can toogle the checkbox of each task, also to delte any task you just need to swipe left or swipe right. A Big thanks to all the answers on stackoverflow and to the flutter cook-book itself without which i couldn'd have made this app usable ",
+                        descriptions: 'Welcome\nto\nMyWorld\nHello\nWorld\n',
                         text: "Check GitHub",
                       );
                     });

@@ -21,7 +21,7 @@ class TaskTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        margin: EdgeInsets.all(8),
+        margin: EdgeInsets.all(3),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
@@ -31,7 +31,7 @@ class TaskTile extends StatelessWidget {
               bottomRight: Radius.circular(10)),
           boxShadow: [
             BoxShadow(
-              color: Colors.deepOrange.withOpacity(0.5),
+              color: Colors.grey.withOpacity(0.5),
               spreadRadius: 5,
               blurRadius: 7,
               offset: Offset(0, 3), // changes position of shadow
@@ -39,12 +39,19 @@ class TaskTile extends StatelessWidget {
           ],
         ),
         child: ListTile(
+            leading: Icon(
+              Icons.table_rows_rounded,
+              color: Colors.deepOrange,
+            ),
             onLongPress: longpresscallback,
-            contentPadding: EdgeInsets.fromLTRB(25.0, 5.0, 5.0, 5.0),
-            title: Text(
-              taskTitle,
-              style: TextStyle(
-                decoration: isTrue ? TextDecoration.lineThrough : null,
+            contentPadding: EdgeInsets.fromLTRB(15.0, 4.0, 5.0, 4.0),
+            title: Transform(
+              transform: Matrix4.translationValues(-18, 0.0, 0.0),
+              child: Text(
+                taskTitle,
+                style: TextStyle(
+                  decoration: isTrue ? TextDecoration.lineThrough : null,
+                ),
               ),
             ),
             trailing: Checkbox(

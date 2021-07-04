@@ -46,7 +46,7 @@ class Tasks_Screen extends StatelessWidget {
                   )),
             ),
             ListTile(
-              leading: Icon(Icons.check_box_outline_blank_rounded),
+              leading: Icon(Icons.check_box),
               title: Text('Check All'),
               enabled: true,
               onTap: () {
@@ -55,7 +55,7 @@ class Tasks_Screen extends StatelessWidget {
             ),
             ListTile(
               onTap: null,
-              leading: Icon(Icons.check_box_outline_blank),
+              leading: Icon(Icons.check_box_outline_blank_rounded),
               title: Text('UnCheck All'),
             ),
             ListTile(
@@ -74,8 +74,9 @@ class Tasks_Screen extends StatelessWidget {
                     context: context,
                     builder: (BuildContext context) {
                       return CustomDialogBox(
-                        title: "Aman Raj",
-                        descriptions: 'Welcome\nto\nMyWorld\nHello\nWorld\n',
+                        title: "To Do",
+                        descriptions:
+                            '☑️ A simple ad free To Do App\n☑️ Press the add icon button to add a task\n☑️swipe left or right on any task to delete\n☑️Check or Uncheck any task\n☑️Delete all task at once\n☑️Check all tasks at once \n☑️Customize your own theme',
                         text: "Check GitHub",
                       );
                     });

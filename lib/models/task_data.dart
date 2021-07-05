@@ -68,4 +68,26 @@ class TaskData extends ChangeNotifier {
     saveData();
     notifyListeners();
   }
+
+  void deleteAll() {
+    _tasks.removeRange(0, _tasks.length);
+    saveData();
+    notifyListeners();
+  }
+
+  void checkAll() {
+    for (var i = 0; i < _tasks.length; i++) {
+      _tasks[i].isdone = true;
+    }
+    saveData();
+    notifyListeners();
+  }
+
+  void uncheckAll() {
+    for (var i = 0; i < _tasks.length; i++) {
+      _tasks[i].isdone = false;
+    }
+    saveData();
+    notifyListeners();
+  }
 }

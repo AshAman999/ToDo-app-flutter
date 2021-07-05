@@ -1,9 +1,11 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:to_do/models/task_data.dart';
 import 'package:to_do/screens/custom_dialog.dart';
 import 'package:to_do/widgets/tasks_list.dart';
 import 'add_task_screen.dart';
 import 'package:provider/provider.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 // ignore: camel_case_types
 class Tasks_Screen extends StatelessWidget {
@@ -50,16 +52,107 @@ class Tasks_Screen extends StatelessWidget {
               title: Text('Check All'),
               enabled: true,
               onTap: () {
-                print("hello");
+                Alert(
+                  context: context,
+                  type: AlertType.warning,
+                  title: "To Do List 📝",
+                  desc:
+                      "This is irreversible, you might end up checking all your tasks listed here. Are you sure ?",
+                  buttons: [
+                    DialogButton(
+                      child: Text(
+                        "NO",
+                        style: TextStyle(color: Colors.white, fontSize: 20),
+                      ),
+                      onPressed: () => Navigator.pop(context),
+                      color: Color.fromRGBO(0, 179, 134, 1.0),
+                    ),
+                    DialogButton(
+                      child: Text(
+                        "YES",
+                        style: TextStyle(color: Colors.white, fontSize: 20),
+                      ),
+                      onPressed: () {
+                        checkAll(context);
+                      },
+                      gradient: LinearGradient(colors: [
+                        Color.fromRGBO(116, 116, 191, 1.0),
+                        Color.fromRGBO(52, 138, 199, 1.0)
+                      ]),
+                    )
+                  ],
+                ).show();
               },
             ),
             ListTile(
-              onTap: null,
+              onTap: () {
+                Alert(
+                  context: context,
+                  type: AlertType.warning,
+                  title: "To Do List 📝",
+                  desc:
+                      "This is irreversible, you might end up unchecking  all your tasks listed here. Are you sure ?",
+                  buttons: [
+                    DialogButton(
+                      child: Text(
+                        "NO",
+                        style: TextStyle(color: Colors.white, fontSize: 20),
+                      ),
+                      onPressed: () => Navigator.pop(context),
+                      color: Color.fromRGBO(0, 179, 134, 1.0),
+                    ),
+                    DialogButton(
+                      child: Text(
+                        "YES",
+                        style: TextStyle(color: Colors.white, fontSize: 20),
+                      ),
+                      onPressed: () {
+                        uncheckAll(context);
+                      },
+                      gradient: LinearGradient(colors: [
+                        Color.fromRGBO(116, 116, 191, 1.0),
+                        Color.fromRGBO(52, 138, 199, 1.0)
+                      ]),
+                    )
+                  ],
+                ).show();
+              },
               leading: Icon(Icons.check_box_outline_blank_rounded),
               title: Text('UnCheck All'),
             ),
             ListTile(
-              onTap: null,
+              onTap: () {
+                Alert(
+                  context: context,
+                  type: AlertType.warning,
+                  title: "To Do List 📝",
+                  desc:
+                      "This is irreversible, you might end up losing all your tasks listed here. Are you sure ?",
+                  buttons: [
+                    DialogButton(
+                      child: Text(
+                        "NO",
+                        style: TextStyle(color: Colors.white, fontSize: 20),
+                      ),
+                      onPressed: () => Navigator.pop(context),
+                      color: Color.fromRGBO(0, 179, 134, 1.0),
+                    ),
+                    DialogButton(
+                      child: Text(
+                        "YES",
+                        style: TextStyle(color: Colors.white, fontSize: 20),
+                      ),
+                      onPressed: () {
+                        dAll(context);
+                      },
+                      gradient: LinearGradient(colors: [
+                        Color.fromRGBO(116, 116, 191, 1.0),
+                        Color.fromRGBO(52, 138, 199, 1.0)
+                      ]),
+                    )
+                  ],
+                ).show();
+              },
               leading: Icon(Icons.delete),
               title: Text('Delete All'),
             ),
@@ -76,7 +169,7 @@ class Tasks_Screen extends StatelessWidget {
                       return CustomDialogBox(
                         title: "To Do",
                         descriptions:
-                            '☑️ A simple ad free To Do App\n☑️ Press the add icon button to add a task\n☑️swipe left or right on any task to delete\n☑️Check or Uncheck any task\n☑️Delete all task at once\n☑️Check all tasks at once \n☑️Customize your own theme',
+                            ' 📝 A simple ad free To Do App\n 📝 Press the add icon button to add a task\n 📝swipe left or right on any task to delete\n 📝Check or Uncheck any task\n 📝Delete all task at once\n 📝Check all tasks at once \n 📝Customize your own theme',
                         text: "Check GitHub",
                       );
                     });
@@ -156,4 +249,34 @@ class Tasks_Screen extends StatelessWidget {
       ),
     );
   }
+}
+
+void dAll(BuildContext context) {
+  Provider.of<TaskData>(context, listen: false).deleteAll();
+  BotToast.showSimpleNotification(
+    title: "To Do List 📝",
+    subTitle: 'All task Deleted Succesfully ',
+    borderRadius: 10.0,
+  );
+  Navigator.pop(context);
+}
+
+void checkAll(BuildContext context) {
+  Provider.of<TaskData>(context, listen: false).checkAll();
+  BotToast.showSimpleNotification(
+    title: "To Do List 📝",
+    subTitle: 'All task Checked Succesfully ',
+    borderRadius: 10.0,
+  );
+  Navigator.pop(context);
+}
+
+void uncheckAll(BuildContext context) {
+  Provider.of<TaskData>(context, listen: false).uncheckAll();
+  BotToast.showSimpleNotification(
+    title: "To Do List 📝",
+    subTitle: 'All task UnChecked Succesfully ',
+    borderRadius: 10.0,
+  );
+  Navigator.pop(context);
 }

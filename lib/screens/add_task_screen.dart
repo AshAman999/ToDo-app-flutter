@@ -42,9 +42,7 @@ class Add_Task_screen extends StatelessWidget {
                 newTaskTitle = value;
               },
               onSubmitted: (newTaskTitle) {
-                if (newTaskTitle == null) {
-                  Navigator.pop(context);
-                } else {
+                if (newTaskTitle != "") {
                   Provider.of<TaskData>(context, listen: false)
                       .addTask(newTaskTitle);
                   BotToast.showSimpleNotification(
@@ -54,6 +52,8 @@ class Add_Task_screen extends StatelessWidget {
                   );
                   Navigator.pop(context);
                   print(newTaskTitle);
+                } else {
+                  Navigator.pop(context);
                 }
               },
             ),

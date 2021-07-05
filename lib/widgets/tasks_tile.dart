@@ -21,7 +21,7 @@ class TaskTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        margin: EdgeInsets.all(3),
+        margin: EdgeInsets.all(2.5),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
@@ -41,13 +41,12 @@ class TaskTile extends StatelessWidget {
         child: ListTile(
             leading: Icon(
               Icons.menu_outlined,
-              color: Colors.deepOrange,
-              size: 18,
+              color: Colors.deepOrange[300],
             ),
-            onLongPress: longpresscallback,
+            // onLongPress: longpresscallback,
             contentPadding: EdgeInsets.fromLTRB(15.0, 4.0, 5.0, 4.0),
             title: Transform(
-              transform: Matrix4.translationValues(-30, 0.0, 0.0),
+              transform: Matrix4.translationValues(-20, 0.0, 0.0),
               child: Text(
                 taskTitle,
                 style: TextStyle(

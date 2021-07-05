@@ -256,7 +256,7 @@ void dAll(BuildContext context) {
   BotToast.showSimpleNotification(
     title: "To Do List 📝",
     subTitle: 'All task Deleted Succesfully ',
-    borderRadius: 10.0,
+    borderRadius: 5.0,
   );
   Navigator.pop(context);
 }
@@ -266,7 +266,7 @@ void checkAll(BuildContext context) {
   BotToast.showSimpleNotification(
     title: "To Do List 📝",
     subTitle: 'All task Checked Succesfully ',
-    borderRadius: 10.0,
+    borderRadius: 5.0,
   );
   Navigator.pop(context);
 }
@@ -276,7 +276,7 @@ void uncheckAll(BuildContext context) {
   BotToast.showSimpleNotification(
     title: "To Do List 📝",
     subTitle: 'All task UnChecked Succesfully ',
-    borderRadius: 10.0,
+    borderRadius: 5.0,
   );
   Navigator.pop(context);
 }

@@ -40,13 +40,14 @@ class TaskTile extends StatelessWidget {
         ),
         child: ListTile(
             leading: Icon(
-              Icons.table_rows_rounded,
+              Icons.menu_outlined,
               color: Colors.deepOrange,
+              size: 18,
             ),
             onLongPress: longpresscallback,
             contentPadding: EdgeInsets.fromLTRB(15.0, 4.0, 5.0, 4.0),
             title: Transform(
-              transform: Matrix4.translationValues(-18, 0.0, 0.0),
+              transform: Matrix4.translationValues(-30, 0.0, 0.0),
               child: Text(
                 taskTitle,
                 style: TextStyle(

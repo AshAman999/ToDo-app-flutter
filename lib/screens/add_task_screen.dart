@@ -23,13 +23,15 @@ class Add_Task_screen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text('Add a new task',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 30.0,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.deepOrange,
-                )),
+            Text(
+              'Add a new task',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 30.0,
+                fontWeight: FontWeight.w700,
+                color: Colors.deepOrange,
+              ),
+            ),
             CupertinoTextField(
               textCapitalization: TextCapitalization.sentences,
               scrollPhysics: BouncingScrollPhysics(
@@ -48,7 +50,7 @@ class Add_Task_screen extends StatelessWidget {
                   BotToast.showSimpleNotification(
                     title: "To Do List 📝",
                     subTitle: 'Addded the task Succesfully ',
-                    borderRadius: 10.0,
+                    borderRadius: 5.0,
                   );
                   Navigator.pop(context);
                   print(newTaskTitle);
@@ -56,7 +58,7 @@ class Add_Task_screen extends StatelessWidget {
               },
             ),
             SizedBox(
-              height: 15.0,
+              height: 5.0,
             ),
             Container(
               margin: EdgeInsets.all(8),

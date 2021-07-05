@@ -15,6 +15,7 @@ class Tasks_Screen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leadingWidth: 80,
+
         // title: Text(
         //   "aman",
         //   style: TextStyle(color: Colors.black),
@@ -57,7 +58,7 @@ class Tasks_Screen extends StatelessWidget {
                   type: AlertType.warning,
                   title: "To Do List 📝",
                   desc:
-                      "This is irreversible, you might end up checking all your tasks listed here. Are you sure ?",
+                      'This is irreversible, you might end up checking all your tasks listed here.\n Are you sure ?',
                   buttons: [
                     DialogButton(
                       child: Text(
@@ -91,7 +92,7 @@ class Tasks_Screen extends StatelessWidget {
                   type: AlertType.warning,
                   title: "To Do List 📝",
                   desc:
-                      "This is irreversible, you might end up unchecking  all your tasks listed here. Are you sure ?",
+                      'This is irreversible, you might end up unchecking  all your tasks listed here. \nAre you sure ?',
                   buttons: [
                     DialogButton(
                       child: Text(
@@ -127,7 +128,7 @@ class Tasks_Screen extends StatelessWidget {
                   type: AlertType.warning,
                   title: "To Do List 📝",
                   desc:
-                      "This is irreversible, you might end up losing all your tasks listed here. Are you sure ?",
+                      'This is irreversible, you might end up losing all your tasks listed here.\n Are you sure ?',
                   buttons: [
                     DialogButton(
                       child: Text(

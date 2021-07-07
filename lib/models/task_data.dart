@@ -1,10 +1,8 @@
 import 'dart:convert';
-
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:to_do/models/db/db.dart';
 import 'dart:collection';
-
 import 'package:to_do/models/tasks.dart';
 
 class TaskData extends ChangeNotifier {
@@ -21,7 +19,9 @@ class TaskData extends ChangeNotifier {
 
   List<Task> _tasks = [];
   UnmodifiableListView<Task> get tasks {
-    //we are creating getter as we set the main tasks to private. we did so , so that we remember that we can just add items to it using provider. we need to use the addTask method which we created.
+    //we are creating getter as we set the main tasks to private. we did so ,
+    // so that we remember that we can just add items to it using provider.
+    // we need to use the addTask method which we created.
     return UnmodifiableListView(_tasks); //also the above is unmodifieable
   }
 
@@ -29,8 +29,8 @@ class TaskData extends ChangeNotifier {
     return _tasks.length;
   }
 
-  void addTask(String newTaskTitle) {
-    final task = Task(name: newTaskTitle, isdone: false);
+  void addTask(String title) {
+    final task = Task(name: title, isdone: false);
     _tasks.add(task);
     saveData();
     notifyListeners();

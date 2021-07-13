@@ -24,6 +24,12 @@
 
 ## Screen Shots
 
-![enter image description here](https://tech.pelmorex.com/wp-content/uploads/2020/10/flutter.png)
+Menu Screen
+![Menu Screen ](https://raw.githubusercontent.com/AshAman999/ToDo-app-flutter/main/DemoImages/menu.png)
+
+Main Screen
+![enter image description here](https://github.com/AshAman999/ToDo-app-flutter/blob/main/DemoImages/mainScreen.png?raw=true)
+About
+![About](https://github.com/AshAman999/ToDo-app-flutter/blob/main/DemoImages/about.png?raw=true)
 
 > A big thanks to [Dr. Angela Yu](https://www.udemy.com/course/flutter-bootcamp-with-dart/) as well for making learning the framework a lot easier through her udemy course . This app is a bit inspired from her last section of the Flutter Course

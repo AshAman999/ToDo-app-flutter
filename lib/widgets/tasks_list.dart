@@ -27,12 +27,17 @@ class _TasksWidgetState extends State<TasksWidget> {
   Widget build(BuildContext context) {
     return Consumer<TaskData>(
       builder: (context, taskdata, child) {
-        return ListView.builder(
-          padding: EdgeInsets.only(top: 15),
-          physics:
-              BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
-          reverse: false,
+        return GridView.builder(
           itemCount: Provider.of<TaskData>(context).tasks.length,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+          ),
+
+          // ListView.builder(
+          //   padding: EdgeInsets.only(top: 15),
+          //   physics: BouncingScrollPhysics(
+          //       parent: AlwaysScrollableScrollPhysics()),
+          //   reverse: false,
           itemBuilder: (context, index) {
             return Dismissible(
               direction: DismissDirection.horizontal,

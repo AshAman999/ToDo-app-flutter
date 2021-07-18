@@ -21,10 +21,8 @@ class TaskTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: AnimatedContainer(
-        duration: Duration(seconds: 5),
-        curve: Curves.bounceIn,
-        margin: EdgeInsets.all(10.5),
+      child: Container(
+        margin: EdgeInsets.fromLTRB(5, 5, 5, 5),
         decoration: BoxDecoration(
           color: isTrue ? Colors.black54 : Colors.lightGreenAccent,
           borderRadius: BorderRadius.only(

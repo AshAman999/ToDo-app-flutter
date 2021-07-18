@@ -139,44 +139,81 @@ class Tasks_Screen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              padding: EdgeInsets.only(
-                  top: 10.0, left: 30, right: 30.0, bottom: 30.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              padding:
+                  EdgeInsets.only(top: 0.0, left: 30, right: 30.0, bottom: 5.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  // GestureDetector(
-                  //   onTap: () {
-                  //     Scaffold.of(context).openDrawer();
-                  //   },
-                  //   child: CircleAvatar(
-                  //     foregroundColor: Colors.deepOrange,
-                  //     radius: 30.0,
-                  //     child: Icon(
-                  //       Icons.list,
-                  //       size: 30.0,
-                  //     ),
-                  //     backgroundColor: Colors.white,
-                  //   ),
-                  // ),
-
-                  Text(
-                    "To Do",
-                    style: TextStyle(
-                      fontSize: 50.0,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.white,
-                    ),
+                  Column(
+                    children: [
+                      Image(
+                        height: 100,
+                        width: 100,
+                        image: AssetImage(
+                          "assets/logo_transparent.png",
+                        ),
+                      ),
+                      Text(
+                        "To Do",
+                        style: TextStyle(
+                          fontSize: 50.0,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
                   ),
-                  Text(
-                    '${Provider.of<TaskData>(context).tasks.length} tasks left',
-                    style: TextStyle(fontSize: 18.0, color: Colors.white),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.lightBlueAccent,
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(10),
+                              topRight: Radius.circular(10),
+                              bottomLeft: Radius.circular(10),
+                              bottomRight: Radius.circular(10)),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 5,
+                              blurRadius: 7,
+                              offset:
+                                  Offset(0, 3), // changes position of shadow
+                            ),
+                          ],
+                        ),
+                        padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                        margin: EdgeInsets.all(10),
+                        child: Text(
+                          '${Provider.of<TaskData>(context).tasks.length}',
+                          style: TextStyle(
+                              fontSize: 60.0,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w900),
+                        ),
+                      ),
+                      Text(
+                        ' Tasks left',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          color: Colors.white,
+                          fontFamily: 'OpenSans-Light',
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
             ),
             Expanded(
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 10.0),
+                padding: EdgeInsets.symmetric(
+                  horizontal: 2.0,
+                  vertical: 2.0,
+                ),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(

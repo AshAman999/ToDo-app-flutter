@@ -28,6 +28,9 @@ class _TasksWidgetState extends State<TasksWidget> {
     return Consumer<TaskData>(
       builder: (context, taskdata, child) {
         return GridView.builder(
+          physics:
+              BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+          reverse: false,
           itemCount: Provider.of<TaskData>(context).tasks.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
